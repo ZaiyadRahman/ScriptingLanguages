@@ -1,14 +1,9 @@
-# frozen_string_literal: true
-
-class TestFile
-  # Test file for custom Array methods
-  require 'minitest/autorun'  # You can use this or just run the test cases directly
-
-  # Load your implementation
-  require_relative '../First file array'  # Adjust this to match your file name
+ # Test file for custom Array methods
+  require 'minitest/autorun'
+  require_relative '../array'
 
   # Test cases start here
-  puts "\n=== Testing the modified [] method ==="
+  puts "\n=== Testing [] method ==="
 
   # Test 1: Normal access with positive indices
   a1 = [10, 20, 30, 40, 50]
@@ -101,5 +96,3 @@ class TestFile
 
   result16_2 = b.map { |x| x[0].upcase + x[1,x.length] }
   puts "Test 16.2: complex mapping without step = #{result16_2} (Expected: [\"Cat\", \"Bat\", \"Mat\", \"Sat\", \"Rat\", \"Hat\"])"
-
-end
