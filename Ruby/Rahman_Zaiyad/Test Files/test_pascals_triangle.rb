@@ -3,7 +3,7 @@ require_relative '../pascal_triangle.rb'
 
 class EncryptionTest < Minitest::Test
   def test_example_case
-    # Test the example provided in the problem statement
+    # Original test
     assert_equal "95", find_encryption([3, 7, 2, 4])
   end
 
@@ -23,17 +23,14 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_with_zeros
-    # Test handling arrays containing zeros
     assert_equal "24", find_encryption([0, 1, 0, 3])
   end
 
   def test_long_array
-    # Test with a longer array of digits
     assert_equal "64", find_encryption([1, 2, 3, 4, 5, 6, 7, 8, 9])
   end
 
   def test_repeated_digits
-    # Test with repeated digits
     assert_equal "00", find_encryption([5, 5, 5, 5, 5])
   end
 
@@ -48,7 +45,7 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_step_by_step_verification
-    # This test verifies each intermediate step of the algorithm
+    # Verifies each intermediate step of the algorithm
     input = [3, 7, 2, 4]
 
     # First iteration should produce [0, 9, 6]
@@ -63,8 +60,7 @@ class EncryptionTest < Minitest::Test
     assert_equal "95", find_encryption(input)
   end
 
-  # Helper method to perform one iteration of the algorithm
-  # This isn't necessary for the actual implementation but helps with testing
+  # Helper method to perform one iteration of FindEncryption
   def perform_one_iteration(numbers)
     result = []
     (0...numbers.length - 1).each do |i|

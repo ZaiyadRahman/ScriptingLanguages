@@ -14,7 +14,7 @@ ruby rgrep.rb Addresses.txt -w road
 echo.
 
 echo Test case 3: Regex search with count
-echo Expected: Number of lines containing two-digit numbers (should be 5)
+echo Expected: Number of lines containing at least two-digit numbers (should be 5)
 echo Actual:
 ruby rgrep.rb Addresses.txt -p -c "\d\d"
 echo.

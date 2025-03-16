@@ -7,7 +7,7 @@ def find_encryption(integers)
       sum = (integers[i] + integers[i + 1]) % 10
       new_nums << sum
     end
-    # replaces the original integers with the new array of summed integers
+    # replaces the original integers with the new array of summed integers. The process repeats until only two integers remain and gets printed
     integers = new_nums
   end
   integers.join

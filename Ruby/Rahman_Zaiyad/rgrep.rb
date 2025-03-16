@@ -2,7 +2,7 @@ filename = nil
 pattern = nil
 options = []
 invalid_options = []
-
+#Parses command line arguments for options and filename/pattern
 ARGV.each do |arg|
   if arg =~ /^-[pwvcm]$/
     options << arg
@@ -11,6 +11,7 @@ ARGV.each do |arg|
   end
 end
 
+# Remove options from ARGV to get non-option arguments (filename and pattern)
 non_option_args = ARGV.reject { |arg| arg.start_with? '-' }
 filename = non_option_args[0] if non_option_args.length > 0
 pattern = non_option_args[1] if non_option_args.length > 1
@@ -25,6 +26,7 @@ else
   options = ["-p"] if options.empty?
 end
 
+# Ignore duplicate options as mentioned in documentation
 options = options.uniq
 
 has_p = options.include?("-p")

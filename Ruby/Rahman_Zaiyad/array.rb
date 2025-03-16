@@ -18,7 +18,6 @@ class Array
       result = []
       # Select only valid indices from the range
       valid_indices = sequence.to_a.select { |i| i >= -self.length && i < self.length }
-      # Apply the block to elements at those indices
       valid_indices.each do |i|
         result << block.call(self[i])
       end
