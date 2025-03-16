@@ -15,7 +15,7 @@ final line 999
     CONTENT
     @test_file.close
 
-    @rgrep_path = "../rgrep.rb"
+    @rgrep_path = "rgrep.rb"
   end
 
   def teardown
