@@ -15,12 +15,10 @@ final line 999
     CONTENT
     @test_file.close
 
-    # Path to your rgrep.rb script - adjust this to your actual path
-    @rgrep_path = "C:/Users/zaiya/PycharmProjects/cseise337_a01/Ruby/Rahman_Zaiyad+114578879/rgrep.rb"  # Assuming it's in the current directory
+    @rgrep_path = "../rgrep.rb"
   end
 
   def teardown
-    # Clean up the temporary test file
     @test_file.unlink
   end
 
