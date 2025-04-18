@@ -9,14 +9,12 @@ fi
 input_file="$1"
 output_file="$2"
 
-# Verify that the input file exists
 if [ ! -f "$input_file" ]; then
     echo "$input_file not found"
     exit 1
 fi
 
-# Ensure only legal characters appear in the input file
-if grep -qE '[^0-9;:,\s-]' "$input_file"; then
+if grep -qE '[^0-9;:,[:space:]-]' "$input_file"; then
     echo "Illegal Pattern in Input_file."
     exit 1
 fi
@@ -43,14 +41,12 @@ while IFS= read -r line; do
     normalized=$(echo "$line" | tr ';:,' ' ')
     col=1
     for num in $normalized; do
-        # Fix: Remove $ from arithmetic variables
         col_sums[$col]=$(( col_sums[$col] + num ))
         ((col++))
     done
 done < "$input_file"
 
-# Use true command with redirection instead of bare redirection
-true > "$output_file"  # Clear or create the output file before writing results
+true > "$output_file"
 for ((i=1; i<=max_cols; i++)); do
     echo "Col $i: ${col_sums[$i]}" >> "$output_file"
 done
